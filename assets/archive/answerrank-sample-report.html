@@ -7,6 +7,9 @@
     <style>
       :root { color-scheme: light; --ink:#182126; --muted:#66747d; --line:#dde5e2; --paper:#f7f8f4; --teal:#176d6b; --rust:#b84c35; --gold:#d7a33a; --blue:#225c96; font-family: Inter, "Segoe UI", Arial, sans-serif; }
       * { box-sizing: border-box; }
+      main { overflow-wrap:anywhere; }
+      .check > div { min-width:0; }
+      @media (max-width:760px){ table{table-layout:fixed;} th,td{padding:8px;font-size:12px;} }
       body { margin:0; background:var(--paper); color:var(--ink); }
       main { width:min(1040px, calc(100vw - 40px)); margin:0 auto; padding:56px 0 80px; }
       header { display:grid; gap:18px; padding:42px; border:1px solid var(--line); border-radius:8px; background:#fff; }
