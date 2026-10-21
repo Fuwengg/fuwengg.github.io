@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Example Co AI Search Visibility Snapshot</title>
+    <style>
+      :root { color-scheme: light; --ink:#182126; --muted:#66747d; --line:#dde5e2; --paper:#f7f8f4; --teal:#176d6b; --rust:#b84c35; --gold:#d7a33a; --blue:#225c96; font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--paper); color:var(--ink); }
+      main { width:min(1040px, calc(100vw - 40px)); margin:0 auto; padding:56px 0 80px; }
+      header { display:grid; gap:18px; padding:42px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+      .eyebrow { margin:0; color:var(--rust); font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+      h1,h2,h3,p { margin:0; }
+      h1 { font-size:48px; line-height:1; letter-spacing:0; }
+      h2 { margin:54px 0 18px; font-size:28px; letter-spacing:0; }
+      h3 { font-size:17px; letter-spacing:0; }
+      p, li, td, th { line-height:1.6; }
+      .meta { color:var(--muted); }
+      .score { display:flex; align-items:end; gap:16px; margin-top:14px; }
+      .score strong { color:var(--blue); font-size:64px; line-height:.9; }
+      .pill { display:inline-flex; align-items:center; min-height:34px; padding:0 12px; border-radius:999px; background:#eef4f4; color:var(--teal); font-weight:800; }
+      .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+      .card { padding:22px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+      .check { display:grid; grid-template-columns:24px 1fr auto; gap:12px; align-items:start; }
+      .status { display:grid; place-items:center; width:24px; height:24px; border-radius:50%; color:#fff; font-weight:900; }
+      .pass { background:var(--teal); }
+      .fail { background:var(--rust); }
+      .points { color:var(--blue); font-weight:900; }
+      .fixes { display:grid; gap:12px; padding:0; list-style:none; }
+      .fixes li { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+      table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+      th,td { padding:12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+      th { background:#eef4f4; font-size:13px; }
+      tr:last-child td { border-bottom:0; }
+      .cta { margin-top:48px; padding:28px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+      @media (max-width:760px){ main{width:min(100vw - 24px, 640px); padding-top:24px;} header{padding:26px;} h1{font-size:34px;} .grid{grid-template-columns:1fr;} .score strong{font-size:50px;} }
+    </style>
+  </head>
+  <body>
+    <main><p style="padding:16px 20px;margin-bottom:20px;background:#e9eff5;border-radius:8px">作品展示 · AnswerRank 历史报告样例（2026-08-18）。评分来自网页规则检查，不代表搜索排名或 AI 实际引用率。<a href="../../index.html#archive">返回作品站</a></p>
+      <header>
+        <p class="eyebrow">AI Search Visibility Snapshot</p>
+        <h1>Example Co</h1>
+        <p class="meta">Website: https://example.com<br />Market: Local services<br />Generated: 2026-08-18</p>
+        <div class="score"><strong>0/100</strong><span class="pill">At risk</span></div>
+        <p class="meta">This snapshot checks whether the site gives AI search systems enough crawlable, structured, and buyer-useful context to recommend the business in answer-style results.</p>
+      </header>
+
+      <h2>Executive Readout</h2>
+      <div class="grid">
+        <div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Crawlable text depth</h3><p class="meta">0/1 crawled pages have enough visible text for AI answer engines.</p></div>
+              <span class="points">0/14</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Service intent pages</h3><p class="meta">0 service, pricing, FAQ, case, or contact pages found.</p></div>
+              <span class="points">0/12</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Structured data</h3><p class="meta">No strong Organization/LocalBusiness/Service/FAQ schema found.</p></div>
+              <span class="points">0/14</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>FAQ / objection coverage</h3><p class="meta">No FAQ page or FAQ schema detected.</p></div>
+              <span class="points">0/10</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Pricing / quote language</h3><p class="meta">Pricing and quote intent is not explicit.</p></div>
+              <span class="points">0/10</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Reviews / proof</h3><p class="meta">No clear customer proof found in crawled pages.</p></div>
+              <span class="points">0/10</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Local trust signals</h3><p class="meta">Local trust signals are weak or missing.</p></div>
+              <span class="points">0/10</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Clear conversion path</h3><p class="meta">No obvious conversion path found.</p></div>
+              <span class="points">0/8</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Page titles</h3><p class="meta">Titles and page labels give answer engines more context.</p></div>
+              <span class="points">0/6</span>
+            </div>
+<div class="card check">
+              <span class="status fail">!</span>
+              <div><h3>Entity clarity</h3><p class="meta">Detected 0 entity/claim signal groups.</p></div>
+              <span class="points">0/6</span>
+            </div>
+      </div>
+
+      <h2>Top Fixes</h2>
+      <ul class="fixes">
+        <li>
+              <h3>Add Organization/LocalBusiness + Service + FAQ schema</h3>
+              <p class="meta">Impact: High · Effort: Low</p>
+              <p>AI answer engines and search features need clean entity, service, and question-answer context.</p>
+            </li>
+<li>
+              <h3>Publish a Local services buyer FAQ</h3>
+              <p class="meta">Impact: High · Effort: Low</p>
+              <p>Answer engines often satisfy searches by extracting direct answers to buyer objections.</p>
+            </li>
+<li>
+              <h3>Add pricing, quote, or estimate language</h3>
+              <p class="meta">Impact: Medium · Effort: Low</p>
+              <p>Commercial-intent prompts often ask who is affordable, how pricing works, or how to request an estimate.</p>
+            </li>
+<li>
+              <h3>Add proof blocks from reviews, cases, or before/after results</h3>
+              <p class="meta">Impact: Medium · Effort: Medium</p>
+              <p>LLM summaries tend to prefer businesses with concrete proof instead of generic claims.</p>
+            </li>
+<li>
+              <h3>Strengthen address, service area, hours, and local trust signals</h3>
+              <p class="meta">Impact: Medium · Effort: Low</p>
+              <p>Local and &#039;near me&#039; answer sets need location confidence.</p>
+            </li>
+      </ul>
+
+      <h2>Crawled Pages</h2>
+      <table>
+        <thead><tr><th>URL</th><th>Title</th><th>Visible Text</th><th>Schema</th></tr></thead>
+        <tbody>
+          <tr>
+                <td>https://example.com</td>
+                <td>Example Domain</td>
+                <td>142 chars</td>
+                <td>-</td>
+              </tr>
+        </tbody>
+      </table>
+
+      <div class="cta"><h2 style="margin-top:0">历史报告展示</h2><p>此页面展示原有工具的检查项目、加权评分、优化建议与抓取记录。示例目标为 example.com，原始数据和生成日期保留；商业服务报价已从展示版移除。</p></div>
+    </main>
+  </body>
+</html>

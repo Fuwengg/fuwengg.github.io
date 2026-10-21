@@ -1,4 +1,77 @@
 export const expandedProjects = {
+  "answerrank": {
+    "id": "answerrank",
+    "title": "AnswerRank · SEO 与 AI 搜索诊断",
+    "type": "SEO / AI SEARCH VISIBILITY",
+    "category": "tools",
+    "subtitle": "网页诊断 · 优化清单 · 报告生成",
+    "intro": "面向企业网站的 SEO 与 AI 搜索可见性诊断原型：采集公开网页，检查页面内容与结构，将问题整理为评分、优化优先级和可分享的 HTML 报告。",
+    "metrics": [
+      [
+        "10 项",
+        "规则检查"
+      ],
+      [
+        "100 分",
+        "加权评分"
+      ],
+      [
+        "HTML",
+        "诊断报告"
+      ]
+    ],
+    "points": [
+      "默认采样最多 8 个同站页面，提取标题、描述、标题层级、链接及结构化数据。",
+      "检查服务说明、FAQ、价格与询价、案例证明、联系入口等内容，生成优化优先级。",
+      "把诊断脚本、服务介绍页、需求提交与报告交付流程组织成完整的平台原型。"
+    ],
+    "status": "本地平台原型 · 已有诊断脚本、页面与历史报告样例。",
+    "credits": "图为原型界面与公开网站演示报告。评分依据网页规则检查；不代表客户委托、搜索排名或 AI 实际引用率。",
+    "image": "archive/answerrank-home.png",
+    "gallery": [
+      "archive/answerrank-report.png"
+    ],
+    "links": [
+      [
+        "查看历史报告样例",
+        "assets/archive/answerrank-sample-report.html"
+      ]
+    ]
+  },
+  "guilong-toolbox": {
+    "id": "guilong-toolbox",
+    "title": "鬼龙工具箱 · 批量图片工作台",
+    "type": "LOCAL AI / IMAGE WORKFLOW",
+    "category": "tools",
+    "subtitle": "电商修图 · AI 抠图 · 批量处理",
+    "intro": "面向电商图片处理的本地工具，将批量导入、实时调色、AI 抠图、背景替换、文字叠加与裁剪导出集中到一个工作台，减少多张商品图反复切换软件的操作。",
+    "metrics": [
+      [
+        "14 项",
+        "调色与细节参数"
+      ],
+      [
+        "RMBG-2.0",
+        "抠图模型接入"
+      ],
+      [
+        "批量导出",
+        "图片工作流"
+      ]
+    ],
+    "points": [
+      "前端 Canvas 提供实时预览、处理前后对照、参数撤销与重做。",
+      "接入 RMBG-2.0 抠图，支持透明、纯色、渐变、自定义背景及文生图背景流程。",
+      "提供文字样式、旋转翻转、产品位置调整、裁剪尺寸与批量文件导出。",
+      "使用 Python、Flask 与 Pillow 构建本地服务，配套启动器及授权管理界面。"
+    ],
+    "status": "本地软件项目 · 老卜 5.0 目录版本，保留界面、处理逻辑及模型接入代码。",
+    "credits": "本页使用现有源码界面的实际截图。界面保留原版本标识；AI 模型推理效果未在本轮重新测试。",
+    "image": "archive/guilong-toolbox-home.png",
+    "gallery": [
+      "archive/guilong-toolbox-controls.png"
+    ]
+  },
   "shotweaver": {
     "id": "shotweaver",
     "title": "ShotWeaver",
