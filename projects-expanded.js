@@ -408,29 +408,31 @@ export const expandedProjects = {
   "music-goodnight": {
     "id": "music-goodnight",
     "title": "晚安留在我这边",
-    "type": "AI MUSIC / JIAALe",
+    "type": "ORIGINAL SONG / JIAALe",
+    "subtitle": "本人原创 · AI 演唱 · 声音版权归本人所有",
     "category": "music",
-    "intro": "从歌词与情绪表达出发，组织 AI 音乐生成、版本筛选与发行准备。这里保留原版完整音轨，让作品本身接受试听。",
+    "intro": "《晚安留在我这边》由我本人创作，AI 仅用于演唱呈现。演唱声音的版权归我本人所有，本站提供原版完整音轨试听。",
     "metrics": [
       [
         "04:20",
         "完整音轨"
       ],
       [
-        "原版",
-        "试听版本"
+        "本人原创",
+        "歌曲创作"
       ],
       [
-        "JIAALe",
-        "发行署名"
+        "AI 演唱",
+        "呈现方式"
       ]
     ],
     "points": [
-      "围绕歌词、声线、咬字与段落听感筛选生成版本。",
-      "将选定音轨、封面与作品信息整理为发行材料。",
+      "本人完成歌曲创作，AI 只承担演唱呈现。",
+      "演唱声音版权归本人所有，整理音轨、封面与作品信息用于发行。",
       "完整试听对应原版成品；另设汽水音乐作品入口。"
     ],
-    "status": "已有公开发行页面 · 本站提供完整音轨试听。",
+    "status": "本人原创歌曲 · 已有公开发行页面 · 本站提供完整音轨试听。",
+    "credits": "歌曲创作：Le（JIAA LE）；演唱：AI；声音版权：Le 本人所有。",
     "image": "archive/music-goodnight.webp",
     "audio": "archive/music-1.mp3",
     "links": [
@@ -443,7 +445,9 @@ export const expandedProjects = {
   "music-about-you": {
     "id": "music-about-you",
     "title": "关于你的歌",
-    "type": "AI MUSIC / JIAALe",
+    "type": "MUSIC / JIAALe",
+    "subtitle": "声音版权归本人所有 · 完整试听",
+    "credits": "声音版权：Le（JIAA LE）本人所有。",
     "category": "music",
     "intro": "一首围绕情感叙事展开的 AI 音乐作品。完成版本筛选及结尾修整，保留自然收尾的完整试听版本。",
     "metrics": [
@@ -477,7 +481,9 @@ export const expandedProjects = {
   "music-nathan": {
     "id": "music-nathan",
     "title": "凌晨四點嘅彌敦道",
-    "type": "AI MUSIC / JIAALe",
+    "type": "MUSIC / JIAALe",
+    "subtitle": "声音版权归本人所有 · 完整试听",
+    "credits": "声音版权：Le（JIAA LE）本人所有。",
     "category": "music",
     "intro": "以深夜城市与粤语表达为创作线索，完成 AI 音乐生成、听感筛选、封面和发行资料整理。",
     "metrics": [
