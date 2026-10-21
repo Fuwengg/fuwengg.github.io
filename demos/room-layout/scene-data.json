@@ -1,0 +1,262 @@
+{
+  "title": "V008 原场景数据的网页展示",
+  "provenance": "V008-room-scene.json；原实测场景，非真实客户住宅。",
+  "nodes": [
+    {
+      "id": "zone_b7fxqpie1pizqv0c",
+      "type": "zone",
+      "name": "4米×5米测试房间",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "polygon": [
+        [
+          -2,
+          -2.5
+        ],
+        [
+          2,
+          -2.5
+        ],
+        [
+          2,
+          2.5
+        ],
+        [
+          -2,
+          2.5
+        ]
+      ]
+    },
+    {
+      "id": "slab_bfziwqlfb3gqqkti",
+      "type": "slab",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "polygon": [
+        [
+          -2,
+          -2.5
+        ],
+        [
+          2,
+          -2.5
+        ],
+        [
+          2,
+          2.5
+        ],
+        [
+          -2,
+          2.5
+        ]
+      ],
+      "thickness": 0.05,
+      "elevation": 0.05
+    },
+    {
+      "id": "wall_nhcyn562hbcigzi4",
+      "type": "wall",
+      "name": "4米×5米测试房间 wall 1",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "start": [
+        -2,
+        -2.5
+      ],
+      "end": [
+        2,
+        -2.5
+      ],
+      "thickness": 0.15,
+      "height": 2.8
+    },
+    {
+      "id": "wall_y6taek5gu6iq3a9r",
+      "type": "wall",
+      "name": "4米×5米测试房间 wall 2",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "start": [
+        2,
+        -2.5
+      ],
+      "end": [
+        2,
+        2.5
+      ],
+      "thickness": 0.15,
+      "height": 2.8
+    },
+    {
+      "id": "wall_v4egoj6j8dzjlzuf",
+      "type": "wall",
+      "name": "4米×5米测试房间 wall 3",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "start": [
+        2,
+        2.5
+      ],
+      "end": [
+        -2,
+        2.5
+      ],
+      "thickness": 0.15,
+      "height": 2.8
+    },
+    {
+      "id": "wall_9ylm1w6yk4ofp9wt",
+      "type": "wall",
+      "name": "4米×5米测试房间 wall 4",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "start": [
+        -2,
+        2.5
+      ],
+      "end": [
+        -2,
+        -2.5
+      ],
+      "thickness": 0.15,
+      "height": 2.8
+    },
+    {
+      "id": "door_ht7x4iybaihxt6xj",
+      "type": "door",
+      "parentId": "wall_v4egoj6j8dzjlzuf",
+      "position": [
+        0.8,
+        1.05,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "height": 2.1,
+      "width": 0.9,
+      "wallId": "wall_v4egoj6j8dzjlzuf"
+    },
+    {
+      "id": "window_x31rdzzlbepm6sq6",
+      "type": "window",
+      "parentId": "wall_nhcyn562hbcigzi4",
+      "position": [
+        2,
+        1.6,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "height": 1.4,
+      "width": 2,
+      "wallId": "wall_nhcyn562hbcigzi4"
+    },
+    {
+      "id": "item_m3ts9y5uisgou43g",
+      "type": "item",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "position": [
+        -0.4,
+        0,
+        -1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "asset": {
+        "id": "sofa",
+        "name": "Sofa",
+        "dimensions": [
+          2.5,
+          0.8,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "item_385bp4e0f9jhl0y2",
+      "type": "item",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "position": [
+        -0.4,
+        0,
+        1.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "asset": {
+        "id": "dining-table",
+        "name": "Dining Table",
+        "dimensions": [
+          2.5,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "id": "item_at6k3zc27ca74dx9",
+      "type": "item",
+      "parentId": "level_j9wo8ag6zfkq8iib",
+      "position": [
+        -0.4,
+        0,
+        0.025
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.6,
+        1,
+        0.4666666666666667
+      ],
+      "asset": {
+        "id": "coffee-table",
+        "name": "Coffee Table",
+        "dimensions": [
+          2,
+          0.4,
+          1.5
+        ]
+      }
+    }
+  ],
+  "coffeeTableVariants": {
+    "initial": {
+      "label": "初始茶几",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "work/v008/reset-large.mjs"
+    },
+    "adjusted": {
+      "label": "调整后茶几",
+      "scale": [
+        0.6,
+        1,
+        0.4666666666666667
+      ],
+      "source": "V008-room-scene.json"
+    }
+  }
+}

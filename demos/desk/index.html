@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7f9" />
+  <meta name="description" content="Le 的私人客户与工作运营台" />
+  <title>Le Desk · 私人运营台</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <span class="brand-mark">L</span>
+        <div><strong>Le Desk</strong><small>Personal operations</small></div>
+      </div>
+
+      <nav class="nav" id="mainNav">
+        <button class="nav-item is-active" type="button" data-view="overview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"/></svg>
+          <span>概览</span>
+        </button>
+        <button class="nav-item" type="button" data-view="inbox">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H5.5L4 18.2V4Z"/><path d="M8 9h8M8 12h5"/></svg>
+          <span>客户收件箱</span><b class="nav-count" id="inboxNavCount" hidden>0</b>
+        </button>
+        <button class="nav-item" type="button" data-view="tasks">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h11M9 12h11M9 19h11M4 5.2l1.2 1.2L7.5 4M4 12.2l1.2 1.2 2.3-2.4M4 19.2l1.2 1.2 2.3-2.4"/></svg>
+          <span>任务</span><b class="nav-count" id="taskNavCount" hidden>0</b>
+        </button>
+        <button class="nav-item" type="button" data-view="clients">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+          <span>客户</span>
+        </button>
+        <button class="nav-item" type="button" data-view="approvals">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+          <span>需要 Le 处理</span><b class="nav-count nav-count-warn" id="approvalNavCount" hidden>0</b>
+        </button>
+        <button class="nav-item" type="button" data-view="activity">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+          <span>操作记录</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" type="button" data-view="settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>
+          <span>设置与权限</span>
+        </button>
+        <div class="owner-card">
+          <span class="avatar">LE</span>
+          <div><strong>Le</strong><small><i></i> 工作台已打开</small></div>
+          <button type="button" id="ownerMenuButton" aria-label="账户菜单">···</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenuButton" type="button" aria-label="打开导航">☰</button>
+        <div class="breadcrumbs"><span>私人工作区</span><i>/</i><strong id="viewLabel">概览</strong></div>
+        <div class="top-actions">
+          <span class="privacy-badge"><i></i> 数据仅保存在本机</span>
+          <button class="icon-button" id="globalSearchButton" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+          <button class="primary-button" id="quickAddButton" type="button">＋ 新建</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="view is-active" id="overviewView" data-title="概览">
+          <div class="page-heading">
+            <div><p class="eyebrow" id="todayLabel">—</p><h1>工作概览</h1><p>只显示实际产生的客户、任务与审批记录。</p></div>
+            <button class="secondary-button" type="button" data-open-view="activity">查看操作记录</button>
+          </div>
+
+          <div class="status-strip">
+            <div class="assistant-status"><span class="status-icon"><i></i></span><div><strong>Le Assistant</strong><p>辅助模式 · 受权限规则约束</p></div></div>
+            <div class="status-divider"></div>
+            <div class="scope-summary"><span>可自动处理</span><strong>分类、整理、生成回复草稿</strong></div>
+            <div class="status-divider"></div>
+            <div class="scope-summary"><span>必须本人确认</span><strong>发送、签署、付款与身份验证</strong></div>
+            <button class="text-button" type="button" data-open-view="settings">查看规则 →</button>
+          </div>
+
+          <div class="metric-grid">
+            <button class="metric-card" type="button" data-open-view="inbox"><span>待处理消息</span><strong id="metricInbox">0</strong><small id="metricInboxNote">当前没有新消息</small></button>
+            <button class="metric-card" type="button" data-open-view="tasks"><span>进行中任务</span><strong id="metricTasks">0</strong><small id="metricTasksNote">尚未创建任务</small></button>
+            <button class="metric-card" type="button" data-open-view="approvals"><span>等待本人</span><strong id="metricApprovals">0</strong><small id="metricApprovalsNote">没有待确认事项</small></button>
+            <button class="metric-card" type="button" data-open-view="clients"><span>客户记录</span><strong id="metricClients">0</strong><small id="metricClientsNote">收到咨询后自动建立</small></button>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel queue-panel"><div class="panel-head"><div><h2>当前工作队列</h2><p>任务按优先级与状态排列</p></div><button class="secondary-button small" type="button" data-action="new-task">新建任务</button></div><div id="overviewTaskList"></div></section>
+            <section class="panel attention-panel"><div class="panel-head"><div><h2>需要你的处理</h2><p>高风险操作不会由助手代办</p></div><button class="text-button" type="button" data-open-view="approvals">全部</button></div><div id="overviewApprovalList"></div></section>
+          </div>
+
+          <section class="panel setup-panel" id="setupPanel">
+            <div class="setup-copy"><span class="setup-icon">✓</span><div><h2>开始使用</h2><p>这是一个全新的本地工作区。完成任意一项后，概览会开始产生真实数据。</p></div></div>
+            <div class="setup-actions">
+              <button type="button" data-action="receive-message"><span>01</span><strong>录入一条客户消息</strong><small>进入收件箱并生成回复草稿</small></button>
+              <button type="button" data-action="new-task"><span>02</span><strong>创建第一个任务</strong><small>设置负责人、优先级与截止日</small></button>
+              <button type="button" data-open-view="settings"><span>03</span><strong>检查权限边界</strong><small>确认哪些动作必须由 Le 完成</small></button>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="inboxView" data-title="客户收件箱">
+          <div class="page-heading compact"><div><p class="eyebrow">CUSTOMER INBOX</p><h1>客户收件箱</h1><p>每条回复先形成草稿，由你确认后才标记为已发送。</p></div><button class="primary-button" type="button" data-action="receive-message">录入客户消息</button></div>
+          <div class="inbox-layout panel">
+            <aside class="thread-pane"><div class="pane-toolbar"><div class="search-field"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="threadSearch" type="search" placeholder="搜索客户或内容" /></div></div><div class="thread-list" id="threadList"></div></aside>
+            <section class="conversation-pane" id="conversationPane"></section>
+          </div>
+        </section>
+
+        <section class="view" id="tasksView" data-title="任务">
+          <div class="page-heading compact"><div><p class="eyebrow">WORK QUEUE</p><h1>任务</h1><p>创建、开始、暂停和完成任务，所有变化都会写入操作记录。</p></div><button class="primary-button" type="button" data-action="new-task">新建任务</button></div>
+          <section class="panel table-panel"><div class="table-toolbar"><div class="segmented" id="taskFilters"><button class="is-active" type="button" data-filter="all">全部</button><button type="button" data-filter="todo">待开始</button><button type="button" data-filter="doing">进行中</button><button type="button" data-filter="done">已完成</button></div><span id="taskTableCount">0 个任务</span></div><div id="taskTable"></div></section>
+        </section>
+
+        <section class="view" id="clientsView" data-title="客户">
+          <div class="page-heading compact"><div><p class="eyebrow">CLIENTS</p><h1>客户</h1><p>客户记录只会在收到消息后建立，不预置示例数据。</p></div><button class="secondary-button" type="button" data-action="receive-message">录入客户消息</button></div>
+          <section class="panel table-panel"><div id="clientTable"></div></section>
+        </section>
+
+        <section class="view" id="approvalsView" data-title="需要 Le 处理">
+          <div class="page-heading compact"><div><p class="eyebrow">HUMAN APPROVALS</p><h1>需要 Le 处理</h1><p>签署、付款、身份验证和最终发送必须由本人明确决定。</p></div></div>
+          <div class="approval-layout"><section class="panel approval-list-panel"><div class="panel-head"><div><h2>待处理</h2><p id="approvalListNote">0 项</p></div></div><div id="approvalList"></div></section><section class="panel approval-detail" id="approvalDetail"></section></div>
+        </section>
+
+        <section class="view" id="activityView" data-title="操作记录">
+          <div class="page-heading compact"><div><p class="eyebrow">AUDIT TRAIL</p><h1>操作记录</h1><p>记录谁在什么时间做了什么，数据按最新操作倒序显示。</p></div><button class="secondary-button" type="button" id="exportLogButton">导出记录</button></div>
+          <section class="panel activity-panel"><div class="activity-toolbar"><strong>本地记录</strong><span id="activityCount">0 条</span></div><div id="activityList"></div></section>
+        </section>
+
+        <section class="view" id="settingsView" data-title="设置与权限">
+          <div class="page-heading compact"><div><p class="eyebrow">SETTINGS</p><h1>设置与权限</h1><p>明确助手能做什么、哪些连接尚未配置、哪些动作永远需要本人。</p></div></div>
+          <div class="settings-grid">
+            <section class="panel settings-section"><div class="panel-head"><div><h2>自动化范围</h2><p>更改会立即写入操作记录</p></div></div><div class="setting-row"><div><strong>客户消息分类</strong><p>识别咨询、合作、售后与风险类型</p></div><label class="switch"><input type="checkbox" data-setting="triage"><span></span></label></div><div class="setting-row"><div><strong>生成回复草稿</strong><p>草稿不会被自动发送</p></div><label class="switch"><input type="checkbox" data-setting="draftReplies"><span></span></label></div><div class="setting-row"><div><strong>从消息创建任务</strong><p>识别明确待办后加入任务队列</p></div><label class="switch"><input type="checkbox" data-setting="taskSuggestions"><span></span></label></div></section>
+            <section class="panel settings-section"><div class="panel-head"><div><h2>强制人工确认</h2><p>以下边界不可绕过</p></div></div><div class="policy-row"><span class="policy-icon locked">✓</span><div><strong>对外发送</strong><p>回复发送前必须由 Le 确认</p></div><b>强制</b></div><div class="policy-row"><span class="policy-icon locked">✓</span><div><strong>合同与签署</strong><p>仅整理材料并推送给 Le</p></div><b>强制</b></div><div class="policy-row"><span class="policy-icon locked">✓</span><div><strong>付款与身份验证</strong><p>助手不能执行，也不能标记为完成</p></div><b>强制</b></div></section>
+            <section class="panel settings-section connections-section"><div class="panel-head"><div><h2>连接</h2><p>未连接的服务不会显示为可用</p></div></div><div class="connection-row"><span class="connection-logo mail">@</span><div><strong>邮箱</strong><p>尚未连接</p></div><span class="connection-state off">未连接</span><button type="button" data-connect="邮箱">配置</button></div><div class="connection-row"><span class="connection-logo calendar">▦</span><div><strong>日历</strong><p>尚未连接</p></div><span class="connection-state off">未连接</span><button type="button" data-connect="日历">配置</button></div><div class="connection-row"><span class="connection-logo local">⌂</span><div><strong>本地工作区</strong><p>浏览器本地存储</p></div><span class="connection-state on">已启用</span><button type="button" data-open-local>详情</button></div></section>
+            <section class="panel settings-section danger-section"><div class="panel-head"><div><h2>本地数据</h2><p>用于重新开始或交付前清理</p></div></div><div class="setting-row"><div><strong>清空并重建工作区</strong><p>删除本机浏览器里由本页面产生的客户、任务和日志</p></div><button class="danger-button" id="resetWorkspaceButton" type="button">清空数据</button></div></section>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header><div><span class="eyebrow" id="modalEyebrow">NEW</span><h2 id="modalTitle">新建</h2></div><button type="button" id="modalCloseButton" aria-label="关闭">×</button></header>
+      <form id="modalForm"><div id="modalBody"></div><footer><button class="secondary-button" type="button" id="modalCancelButton">取消</button><button class="primary-button" type="submit" id="modalSubmitButton">保存</button></footer></form>
+    </section>
+  </div>
+
+  <div class="command-menu" id="commandMenu" hidden>
+    <div class="command-box"><div class="command-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="commandInput" type="search" placeholder="搜索页面、客户、任务或操作…" /></div><div id="commandResults"></div><footer><span>↑↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></footer></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

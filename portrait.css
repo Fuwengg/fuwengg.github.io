@@ -1,0 +1,73 @@
+.portrait-open { overflow: hidden; }
+.portrait-teaser { display: block; position: relative; width: 100%; text-align: left; overflow: hidden; background: #dedfd8; isolation: isolate; }
+.portrait-teaser::after { content: ''; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, #15171685); pointer-events: none; }
+.portrait-teaser img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.portrait-teaser:hover img { transform: scale(1.025); }
+.portrait-mode { position: absolute; z-index: 1; top: 18px; left: 18px; background: #171b20ec; color: #ffe28b; padding: 9px 12px; font: 9px/1.4 monospace; letter-spacing: .06em; }
+.portrait-cta { position: absolute; z-index: 1; bottom: 22px; right: 22px; display: flex; gap: 28px; align-items: center; background: #ffe394; color: #242318; padding: 14px 19px; font-size: 13px; box-shadow: 0 4px 25px #0002; }
+.portrait-cta b { font: 24px/1 Arial; transition: transform .3s; }
+.portrait-teaser:hover .portrait-cta b { transform: translate(3px,-3px); }
+#portrait-dialog { border: 0; padding: 0; width: min(970px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow: auto; background: #f0f0eb; color: #23241f; }
+#portrait-dialog[open] { display: grid; grid-template-columns: .95fr 1fr; }
+#portrait-dialog::backdrop { background: #111720c9; backdrop-filter: blur(12px); }
+.portrait-toolbar { position: sticky; top: 0; height: 0; grid-column: 1/-1; z-index: 3; }
+.portrait-close { position: absolute; top: 16px; right: 17px; z-index: 2; padding: 12px 16px; border: 1px solid #373d2e35; background: #f0f0eb; font-size: 11px; }
+.portrait-dialog-art { position: relative; min-height: 620px; overflow: hidden; background: #b8d1d7; }
+.portrait-dialog-art img { height: 100%; width: 100%; object-fit: cover; object-position: 59% center; position: absolute; inset: 0; }
+.portrait-dialog-art>span { position: absolute; bottom: 26px; left: 26px; background: #ffe394; padding: 10px 16px; font-size: 13px; letter-spacing: .06em; }
+.portrait-dialog-copy { padding: 70px 35px 35px; }
+.portrait-dialog-copy>.eyebrow { font-size: 9px; color: #777e6d; }
+.portrait-dialog-copy h2 { margin: 23px 0 24px; font-size: clamp(31px,3.2vw,45px); line-height: 1.35; font-weight: 400; letter-spacing: -.055em; }
+.portrait-dialog-copy h2 span { color: #7c846e; }
+#portrait-dialog-description { color: #6e7565; font-size: 13px; line-height: 1.9; margin-bottom: 27px; }
+.portrait-wechat { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 20px 0; border-top: 1px solid #ccd0c4; border-bottom: 1px solid #ccd0c4; }
+.portrait-wechat>div { display: flex; flex-direction: column; gap: 6px; }
+.portrait-wechat>div>span { font-size: 10px; color: #797e71; }
+.portrait-wechat strong { font: 21px/1.3 monospace; letter-spacing: -.05em; font-weight: 400; user-select: all; }
+#portrait-copy-wechat { display: flex; gap: 12px; align-items: center; font-size: 11px; min-height: 44px; }
+#portrait-copy-wechat>span { font-size: 20px; }
+.portrait-status { margin: 10px 0; min-height: 28px; font-size: 11px; line-height: 1.7; color: #376138; }
+.portrait-payment-state { display: flex; align-items: start; gap: 10px; font-size: 12px; padding: 15px; background: #e7e8e0; }
+.portrait-payment-state>span { color: #7a8269; margin-top: 2px; }
+.portrait-payment-state p { margin: 0; line-height: 1.8; }
+.portrait-payment-state small { font-size: 10px; color: #747b68; }
+.portrait-back { font-size: 11px; padding: 15px 0 5px; border-bottom: 1px solid #939a85; margin-top: 13px; }
+.portrait-payment { margin-top: 14px; border-bottom: 1px solid #ccd0c4; }
+.portrait-payment summary { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 12px 0 17px; font-size: 12px; list-style: none; }
+.portrait-payment summary::-webkit-details-marker { display: none; }
+.portrait-payment summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+.portrait-payment summary span { font-size: 19px; }
+.portrait-payment[open] summary span { transform: rotate(45deg); }
+.portrait-payment a { display: block; max-width: 280px; margin: 0 auto; }
+.portrait-payment img { width: 100%; height: auto; }
+.portrait-payment>p { font-size: 10px; color: #6e7565; line-height: 1.8; text-align: center; margin: 12px 0 20px; }
+#portrait-unlock-form { margin-top: 23px; }
+#portrait-unlock-form>label { display: block; font-size: 11px; margin-bottom: 10px; color: #6e7565; }
+.portrait-unlock-fields { display: flex; gap: 6px; align-items: stretch; }
+#portrait-unlock-code { min-width: 0; width: 100%; border: 1px solid #c8cdbd; border-radius: 0; background: #fafaf6; padding: 13px 11px; font: 12px/1.4 monospace; }
+#portrait-unlock-code:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+#portrait-unlock-submit { flex-shrink: 0; background: #24291f; color: #f1f3e9; font-size: 11px; padding: 11px 13px; }
+#portrait-unlock-submit:disabled { opacity: .65; cursor: wait; }
+#portrait-unlock-status { margin: 9px 0 0; }
+#portrait-unlock-status[data-error=true] { color: #9f3d2c; }
+.portrait-success { color: #376138; font-size: 12px; line-height: 1.8; margin: 23px 0 15px; }
+#portrait-unlocked-actions>a { display: inline-block; font-size: 12px; border-bottom: 1px solid; padding: 8px 0; }
+#portrait-relock { display: block; font-size: 10px; margin-top: 16px; color: #747b68; min-height: 32px; }
+.portrait-revealed .portrait-dialog-art { background: #ccd9d5; }
+.portrait-revealed .portrait-mode { background: #ebf2e7; color: #435638; }
+.portrait-revealed .portrait-payment, .portrait-revealed .portrait-payment-state { display: none; }
+@media(max-width:700px) {
+  .portrait-mode { top: 12px; left: 12px; font-size: 7px; padding: 6px 8px; }
+  .portrait-cta { right: 12px; bottom: 12px; padding: 11px 14px; gap: 17px; font-size: 11px; }
+  .portrait-cta b { font-size: 20px; }
+  #portrait-dialog[open] { grid-template-columns: 1fr; }
+  .portrait-dialog-art { min-height: 200px; height: 200px; }
+  .portrait-dialog-art img { object-position: 59% 33%; }
+  .portrait-dialog-art>span { left: 17px; bottom: 15px; font-size: 10px; padding: 7px 10px; }
+  .portrait-dialog-copy { padding: 28px 24px 25px; }
+  .portrait-dialog-copy h2 { font-size: 33px; margin: 15px 0; }
+  #portrait-dialog-description { font-size: 12px; margin-bottom: 20px; }
+  .portrait-wechat { padding: 15px 0; }
+  .portrait-wechat strong { font-size: 20px; }
+  .portrait-close { top: 12px; right: 12px; }
+}

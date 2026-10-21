@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "start_url": "https://books.toscrape.com/catalogue/page-1.html",
+  "pages_fetched": 3,
+  "records": 60,
+  "duplicates_skipped": 0,
+  "errors": 0,
+  "limits": {
+    "max_pages": 3,
+    "max_records": 100,
+    "delay_seconds": 1.0
+  },
+  "started_at_utc": "2026-07-26T10:42:42.563045+00:00",
+  "finished_at_utc": "2026-07-26T10:42:47.920775+00:00"
+}

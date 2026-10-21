@@ -1,0 +1,38 @@
+{
+  "start_url": "https://books.toscrape.com/catalogue/page-1.html",
+  "card_selector": "article.product_pod",
+  "next_selector": "li.next a",
+  "next_attr": "href",
+  "dedupe_field": "商品链接",
+  "max_pages": 3,
+  "max_records": 100,
+  "delay_seconds": 1.0,
+  "timeout_seconds": 15,
+  "fields": [
+    {
+      "name": "商品名称",
+      "selector": "h3 a",
+      "attr": "title"
+    },
+    {
+      "name": "价格",
+      "selector": ".price_color"
+    },
+    {
+      "name": "库存状态",
+      "selector": ".availability"
+    },
+    {
+      "name": "商品链接",
+      "selector": "h3 a",
+      "attr": "href",
+      "absolute_url": true
+    },
+    {
+      "name": "图片链接",
+      "selector": "img",
+      "attr": "src",
+      "absolute_url": true
+    }
+  ]
+}

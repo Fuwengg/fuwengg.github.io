@@ -1,0 +1,22 @@
+{
+  "viewer": "SuperSplat / PlayCanvas",
+  "sample": "PlayCanvas toy-cat.sog official sample",
+  "sample_url": "https://developer.playcanvas.com/assets/toy-cat.sog",
+  "editor_url": "https://superspl.at/editor?load=https://developer.playcanvas.com/assets/toy-cat.sog&focal=0,0.6,0&camera.overlay=false",
+  "contribution": "Local export integration and interactive viewing practice",
+  "authorship_boundary": "The sample model is not captured, modeled or trained by Le.",
+  "packaging": "Settings and SOG content embedded in sse-bootstrap; external scene.compressed.ply / settings.json are unused defaults.",
+  "embedded_sog_bytes": 722731,
+  "embedded_sog_sha256": "a6ade38cb4e26fb45db9288684ff873b2a503e1e386a7e858ca3f133510ec5ea",
+  "zip_integrity": "pass",
+  "archive_entries": [
+    "means_l.webp",
+    "means_u.webp",
+    "quats.webp",
+    "scales.webp",
+    "sh0.webp",
+    "shN_centroids.webp",
+    "shN_labels.webp",
+    "meta.json"
+  ]
+}

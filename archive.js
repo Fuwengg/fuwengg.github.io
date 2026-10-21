@@ -1,0 +1,46 @@
+const categories={all:'全部项目',visual:'电商 / 视觉',music:'音乐',unity:'Unity 工具',interactive:'3D / 互动',web:'网站 / H5',tools:'程序 / 工具',research:'系统 / 研发',video:'影像'};
+const asset=file=>file.startsWith('assets/')?file:`assets/${file}`;
+function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
+function image(file,title){const n=el('img');n.src=asset(file);n.alt=title;n.loading='lazy';n.decoding='async';return n;}
+export function initializeArchive(projects){
+ const entries=Object.entries(projects),dialog=document.querySelector('#project-dialog'),content=document.querySelector('#dialog-content');
+ const featured=['taohuayuan','bailongma','headphones','shotweaver','heart','cafe-courtyard'].filter(id=>projects[id]);
+ function card(id,p,index,large=false){
+  const b=el('button',large?'feature-card':'archive-card');b.dataset.project=id;
+  const art=el('div','archive-art');
+  if(p.image)art.append(image(p.image,p.title));else{art.classList.add('typographic-art');const motif=el('span','art-symbol',p.category==='research'?'∿':p.category==='music'?'♫':'⌘');art.append(motif,el('span','art-type',p.type),el('strong','art-title',p.title));}
+  const label=p.demo?'可体验 ↗':p.audio?'可试听 ♫':p.video?'可播放 ▶':p.shop?'完整案例 ↗':'查看项目 ↗';art.append(el('span','archive-action',label));
+  const caption=el('div','archive-caption');caption.append(el('span','archive-number',String(index+1).padStart(2,'0')),el('h3','',p.title),el('p','',p.subtitle||p.type));
+  b.append(art,caption);return b;
+ }
+ const featureGrid=document.querySelector('#featured-grid');featured.forEach((id,i)=>featureGrid.append(card(id,projects[id],i,true)));
+ const archiveGrid=document.querySelector('#archive-grid'),filters=document.querySelector('#archive-filters');
+ entries.forEach(([id,p],i)=>{const c=card(id,p,i);c.dataset.category=p.category;c.dataset.search=[p.title,p.type,p.intro,...(p.points||[])].join(' ').toLowerCase();archiveGrid.append(c);});
+ let filter='all',query='';const cards=[...archiveGrid.children];
+ function apply(){let count=0;for(const c of cards){c.hidden=(filter!=='all'&&c.dataset.category!==filter)||!c.dataset.search.includes(query);if(!c.hidden)count++;}document.querySelector('#filter-status').textContent=`${String(count).padStart(2,'0')} 个项目`;document.querySelector('#archive-empty').hidden=count!==0;}
+ for(const [key,label]of Object.entries(categories)){const count=key==='all'?entries.length:entries.filter(([,p])=>p.category===key).length;if(!count)continue;const b=el('button','archive-filter',`${label} ${String(count).padStart(2,'0')}`);b.type='button';b.dataset.filter=key;b.setAttribute('aria-pressed',key==='all');b.addEventListener('click',()=>{filter=key;filters.querySelectorAll('button').forEach(n=>n.setAttribute('aria-pressed',n===b));apply();});filters.append(b);}
+ document.querySelector('#project-search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();apply();});apply();
+ document.querySelectorAll('[data-project-count]').forEach(n=>n.textContent=String(entries.length).padStart(2,'0'));
+ const music=document.querySelector('#music-list');entries.filter(([,p])=>p.audio).forEach(([id,p],i)=>{const row=el('article','music-row');const cover=el('button','music-cover');cover.dataset.project=id;if(p.image)cover.append(image(p.image,p.title));else cover.textContent='♫';const desc=el('div','music-copy');desc.append(el('span','eyebrow',`TRACK ${String(i+1).padStart(2,'0')} / JIAA LE`),el('h3','',p.title),el('p','',p.subtitle||'原创歌词 · AI 音乐制作'));const audio=el('audio');audio.controls=true;audio.preload='none';audio.src=asset(p.audio);audio.setAttribute('aria-label',`试听${p.title}`);row.append(cover,desc,audio);music.append(row);});
+ document.addEventListener('play',e=>{if(e.target instanceof HTMLMediaElement)document.querySelectorAll('audio,video').forEach(v=>{if(v!==e.target)v.pause();});},true);
+ function links(items){const wrap=el('div','detail-links');for(const [label,url]of items){const a=el('a','',`${label} ↗`);a.href=url;a.target='_blank';a.rel='noopener noreferrer';wrap.append(a);}return wrap;}
+ function gallery(files,title,cls='detail-gallery'){const g=el('div',cls);for(const f of files){const figure=el('figure');const a=el('a');a.href=asset(f);a.target='_blank';a.rel='noopener';a.setAttribute('aria-label',`放大查看${title}`);a.append(image(f,title));figure.append(a);g.append(figure);}return g;}
+ function shopSection(shop){
+  const wrap=el('section','shop-case');wrap.append(el('h3','','从店铺到单品，一套完整的视觉表达。'),el('p','',`${shop.products.length} 款商品 · 店铺装修、产品主图、详情长图与视频。点击商品展开全部素材。`));
+  if(shop.decoration?.length){const d=el('details','shop-product');d.append(el('summary','','店铺装修与品牌视觉'),gallery(shop.decoration,'百龙玛店铺装修','shop-gallery'));wrap.append(d);}
+  if(shop.drafts?.length){const d=el('details','shop-product');d.append(el('summary','','产品细节与补充设计稿'),gallery(shop.drafts,'百龙玛设计稿','shop-gallery'));wrap.append(d);}
+  if(shop.videos?.length){const d=el('details','shop-product'),vs=el('div','shop-videos');d.append(el('summary','','商品讲解与工厂视频'));for(const v of shop.videos){const vid=el('video');vid.controls=true;vid.playsInline=true;vid.preload='none';vid.src=asset(v.asset);vid.poster=asset(v.poster);vs.append(vid);}d.append(vs);wrap.append(d);}
+  shop.products.forEach((p,i)=>{const d=el('details','shop-product'),s=el('summary');if(p.main[0])s.append(image(p.main[0],p.title));const words=el('span');words.append(el('small','',`PRODUCT ${String(i+1).padStart(2,'0')}`),el('strong','',p.title),el('small','',`${p.main.length} 张主图 / ${p.detail.length} 张详情图${p.videos?.length?' / 产品视频':''}`));s.append(words,el('span','shop-plus','＋'));d.append(s);let loaded=false;d.addEventListener('toggle',()=>{if(!d.open||loaded)return;loaded=true;const inner=el('div','shop-product-body');inner.append(el('h4','','产品主图'),gallery(p.main,p.title,'shop-gallery'));if(p.detail.length)inner.append(el('h4','','详情页设计'),gallery(p.detail,p.title,'shop-details'));if(p.videos?.length){const vs=el('div','shop-videos');p.videos.forEach(v=>{const vid=el('video');vid.controls=true;vid.playsInline=true;vid.preload='none';vid.src=asset(typeof v==='string'?v:v.asset);if(p.main[0])vid.poster=asset(p.main[0]);vs.append(vid);});inner.append(el('h4','','商品视频'),vs);}inner.append(links([['查看原商品页',p.url]]));d.append(inner);});wrap.append(d);});return wrap;
+ }
+ function openProject(id){const p=projects[id];if(!p)return;content.replaceChildren();document.querySelectorAll('audio,video').forEach(v=>v.pause());
+  const copy=el('div','dialog-copy');copy.append(el('p','eyebrow',p.type));const title=el('h2','',p.title);title.id='dialog-title';copy.append(title,el('p','detail-intro',p.intro));
+  if(p.demo){const controls=el('div','demo-launch');const start=el('button','','在此体验 ↗');start.type='button';const full=el('a','','全屏打开 ↗');full.href=p.demo;full.target='_blank';full.rel='noopener';controls.append(start,full);copy.append(controls);start.addEventListener('click',()=>{if(content.querySelector('.project-demo')){content.querySelector('.project-demo').scrollIntoView({behavior:'smooth',block:'start'});return;}const frame=el('iframe','project-demo');frame.title=`${p.title}互动演示`;frame.src=p.demo;frame.loading='eager';frame.allow='fullscreen; autoplay';frame.setAttribute('sandbox','allow-scripts allow-same-origin allow-downloads allow-forms allow-popups');copy.after(frame);frame.scrollIntoView({behavior:'smooth',block:'start'});});}
+  if(p.metrics?.length){const ms=el('div','detail-metrics');for(const [v,l]of p.metrics){const n=el('div');n.append(el('strong','',v),el('span','',l));ms.append(n);}copy.append(ms);}
+  const list=el('ul','detail-list');(p.points||[]).forEach(s=>list.append(el('li','',s)));copy.append(list);if(p.status)copy.append(el('p','detail-status',p.status));if(p.credits)copy.append(el('p','detail-credits',p.credits));if(p.links)copy.append(links(p.links));content.append(copy);
+  if(p.image||p.video||p.audio){const box=el('div','dialog-media');if(p.video){const v=el('video');v.src=asset(p.video);if(p.image)v.poster=asset(p.image);v.controls=true;v.playsInline=true;v.preload='metadata';box.append(v);}else if(p.image)box.append(image(p.image,p.title));if(p.audio){box.classList.add('audio-media');const a=el('audio');a.controls=true;a.src=asset(p.audio);a.preload='metadata';box.append(a);}content.append(box);}
+  if(p.gallery?.length)content.append(gallery(p.gallery,p.title));if(p.shop)content.append(shopSection(p.shop));
+  dialog.showModal();dialog.scrollTop=0;document.body.classList.add('modal-open');
+ }
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-project]');if(b)openProject(b.dataset.project);});document.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{content.querySelectorAll('audio,video').forEach(v=>v.pause());content.querySelectorAll('iframe').forEach(f=>f.remove());document.body.classList.remove('modal-open');});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+ return openProject;
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>&#33258;&#21160;&#20462;&#22270;&#24037;&#20316;&#21488;</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Auto Retouch Studio</p>
+            <h1>&#33258;&#21160;&#20462;&#22270;&#24037;&#20316;&#21488;</h1>
+          </div>
+          <div class="actions">
+            <label class="icon-button primary" title="&#19978;&#20256;&#29031;&#29255;">
+              <input id="fileInput" type="file" accept="image/*">
+              <span aria-hidden="true">&#8593;</span>
+              <span>&#19978;&#20256;</span>
+            </label>
+            <button id="downloadBtn" class="icon-button" type="button" title="&#19979;&#36733;&#25104;&#22270;">
+              <span aria-hidden="true">&#8595;</span>
+              <span>&#19979;&#36733;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="stage" aria-label="&#22270;&#29255;&#39044;&#35272;&#21306;">
+          <canvas id="outputCanvas"></canvas>
+          <canvas id="originalCanvas" class="before-layer"></canvas>
+          <div id="splitHandle" class="split-handle" aria-hidden="true"></div>
+          <div id="dropHint" class="drop-hint">
+            <strong>&#25302;&#20837;&#29031;&#29255;</strong>
+            <span>&#25110;&#28857;&#20987;&#19978;&#20256;</span>
+          </div>
+        </div>
+
+        <div class="comparison-bar">
+          <span>&#21407;&#22270;</span>
+          <input id="compareRange" type="range" min="0" max="100" value="38" aria-label="&#21407;&#22270;&#23545;&#27604;&#33539;&#22260;">
+          <span>&#25104;&#22270;</span>
+        </div>
+      </section>
+
+      <aside class="control-panel">
+        <div class="panel-group">
+          <div class="panel-title">
+            <span>&#39118;&#26684;</span>
+            <button id="resetBtn" type="button" title="&#37325;&#32622;&#21442;&#25968;">&#8634;</button>
+          </div>
+          <div id="styleGrid" class="style-grid"></div>
+        </div>
+
+        <div class="panel-group">
+          <label class="slider-row">
+            <span>&#24378;&#24230;</span>
+            <input id="intensityRange" type="range" min="0" max="100" value="42">
+          </label>
+          <label class="slider-row">
+            <span>&#26234;&#33021;&#31067;&#30196;</span>
+            <input id="blemishRange" type="range" min="0" max="100" value="86">
+          </label>
+          <label class="slider-row">
+            <span>&#21435;&#27833;&#20809;</span>
+            <input id="shineRange" type="range" min="0" max="100" value="76">
+          </label>
+          <label class="slider-row">
+            <span>&#32993;&#28195;&#28129;&#21270;</span>
+            <input id="beardRange" type="range" min="0" max="100" value="62">
+          </label>
+          <label class="slider-row">
+            <span>&#30116;&#30165;&#32441;&#29702;</span>
+            <input id="scarRange" type="range" min="0" max="100" value="68">
+          </label>
+          <label class="slider-row">
+            <span>&#26580;&#30382;</span>
+            <input id="smoothRange" type="range" min="0" max="100" value="38">
+          </label>
+          <label class="slider-row">
+            <span>&#20142;&#30333;</span>
+            <input id="whitenRange" type="range" min="0" max="100" value="10">
+          </label>
+          <label class="switch-row">
+            <span>&#33258;&#21160;&#20462;&#29806;</span>
+            <input id="repairToggle" type="checkbox" checked>
+          </label>
+          <label class="switch-row">
+            <span>&#38378;&#20809;&#39063;&#31890;</span>
+            <input id="grainToggle" type="checkbox" checked>
+          </label>
+        </div>
+
+        <div class="panel-group compact">
+          <div class="metric">
+            <span>&#24403;&#21069;&#39044;&#35774;</span>
+            <strong id="activeStyleName">&#30495;&#23454;&#20928;&#32932;</strong>
+          </div>
+          <div class="metric">
+            <span>&#20462;&#29806;&#20687;&#32032;</span>
+            <strong id="repairCount">--</strong>
+          </div>
+          <div class="metric">
+            <span>&#30011;&#24067;</span>
+            <strong id="canvasSize">--</strong>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
