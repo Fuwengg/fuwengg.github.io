@@ -1,4 +1,57 @@
 export const filmProjects = {
+  "tidekeeper": {
+    "id": "tidekeeper",
+    "title": "逆潮 · THE TIDEKEEPER",
+    "category": "video",
+    "type": "ORIGINAL AI SHORT FILM / 2026",
+    "filmType": "narrative",
+    "flagship": true,
+    "subtitle": "写实科幻 · 同镜双时间 · 原创短片",
+    "filmDescription": "一名守灯人，一场风暴，两种时间。\n写实科幻 · 53.7 秒 · 原创短片",
+    "duration": "00:54",
+    "frameWidth": 1280,
+    "frameHeight": 544,
+    "image": "films/tidekeeper-poster.jpg",
+    "video": "films/tidekeeper.mp4",
+    "caseStudy": "tidekeeper.html",
+    "intro": "风暴逼近灯塔。守灯人转动旧式手轮，海水开始逆向回流。以自然风暴光、同一人物与灯塔空间，讲述一次短暂的时间反转。",
+    "metrics": [
+      [
+        "53.7 秒",
+        "完整短片"
+      ],
+      [
+        "1280 × 544",
+        "原生画幅 / 24fps"
+      ],
+      [
+        "同镜双时间",
+        "局部时间合成"
+      ]
+    ],
+    "points": [
+      "统一人物、湿雨衣、工作灯塔与阴天光线，让跨镜头的空间和状态连贯。",
+      "将前行、转轮、水滴与海浪组织成有起因和结果的镜头顺序。",
+      "先生成正向运动底片，再通过窗格分区合成，让人物正向动作与海水逆行同框。",
+      "结合首尾帧约束、镜头取舍、剪辑和环境声编排完成全片。制作页可查看实际底片与成片对照。"
+    ],
+    "gallery": [
+      "films/tidekeeper-still-01.jpg",
+      "films/tidekeeper-still-02.jpg",
+      "films/tidekeeper-still-03.jpg",
+      "films/tidekeeper-still-04.jpg",
+      "films/tidekeeper-still-05.jpg",
+      "films/tidekeeper-still-06.jpg"
+    ],
+    "links": [
+      [
+        "观看成片与制作拆解",
+        "tidekeeper.html"
+      ]
+    ],
+    "status": "2026年10月 · 个人原创概念短片。人物与场景均为虚构，影像由AI生成。",
+    "credits": "创作与制作：Le（AI辅助）。原创关键帧、H3动态生成、镜头剪辑、局部时间合成与声音编排。"
+  },
   "film-coffee": {
     "id": "film-coffee",
     "title": "焙光 · 晨间手冲",

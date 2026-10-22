@@ -24,6 +24,16 @@
 .film-feature .film-copy h3{font-size:clamp(36px,4vw,65px);margin:17px 0 24px}
 .film-feature .film-description{font-size:13px;line-height:2}
 .film-feature-action{display:inline-block;margin-top:34px;border-bottom:1px solid #c2d195;padding-bottom:10px;color:#cfdf9a;font-size:12px}
+.film-feature.film-flagship{display:block}
+.film-flagship .film-picture{aspect-ratio:40/17}
+.film-flagship .film-copy{display:grid;grid-template-columns:1fr 1fr;gap:14px 5vw;padding-top:28px}
+.film-flagship .film-kicker{grid-column:1/-1}
+.film-flagship .film-copy h3{margin:4px 0 12px}
+.film-flagship .film-description{align-self:center;font-size:14px}
+.film-flagship .film-feature-action{justify-self:start;margin-top:12px}
+.film-case-link{display:inline-block;color:#cfdf9a;font-size:12px;border-bottom:1px solid #c2d195;padding-bottom:9px;margin:-22px 0 46px;text-underline-offset:5px}
+.film-case-link:focus-visible{outline:2px solid #cfdf9a;outline-offset:8px}
+@media(max-width:700px){.film-flagship .film-copy{display:block}.film-flagship .film-description{font-size:11px}.film-flagship .film-kicker{display:block}.film-flagship .film-feature-action{margin-top:20px}.film-case-link{margin:-10px 0 35px;font-size:11px}}
 .film-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px 24px}
 .films-footnote{font-size:10px;line-height:1.9;color:#8f9985;margin:50px 0 0;border-top:1px solid #ffffff20;padding-top:21px}
 #project-dialog.video-dialog .dialog-media{padding:0;background:#111}

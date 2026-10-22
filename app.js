@@ -1,6 +1,6 @@
-import {projects} from './catalog.js?v=20261022-films';
-import {initializeArchive} from './archive.js?v=20261022-films';
-import {initializeFilms} from './films.js';
+import {projects} from './catalog.js?v=20261022-tidekeeper';
+import {initializeArchive} from './archive.js?v=20261022-tidekeeper';
+import {initializeFilms} from './films.js?v=20261022-tidekeeper';
 const openProject=initializeArchive(projects);
 initializeFilms(projects);
 document.querySelector('#copy-contact').addEventListener('click',async()=>{const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText('13147067501');status.textContent='电话已复制，期待交流。';}catch{status.textContent='电话：13147067501，可长按或选中复制。';}});

@@ -4,7 +4,7 @@ function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className
 function image(file,title){const n=el('img');n.src=asset(file);n.alt=title;n.loading='lazy';n.decoding='async';return n;}
 export function initializeArchive(projects){
  const entries=Object.entries(projects),dialog=document.querySelector('#project-dialog'),content=document.querySelector('#dialog-content');
- const featured=['taohuayuan','bailongma','headphones','shotweaver','heart','cafe-courtyard'].filter(id=>projects[id]);
+ const featured=['tidekeeper','bailongma','headphones','shotweaver','heart','cafe-courtyard'].filter(id=>projects[id]);
  function card(id,p,index,large=false){
   const b=el('button',large?'feature-card':'archive-card');b.dataset.project=id;
   const art=el('div','archive-art');
