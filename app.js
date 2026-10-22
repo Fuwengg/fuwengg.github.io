@@ -1,6 +1,8 @@
-import {projects} from './catalog.js';
-import {initializeArchive} from './archive.js';
+import {projects} from './catalog.js?v=20261022-films';
+import {initializeArchive} from './archive.js?v=20261022-films';
+import {initializeFilms} from './films.js';
 const openProject=initializeArchive(projects);
+initializeFilms(projects);
 document.querySelector('#copy-contact').addEventListener('click',async()=>{const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText('13147067501');status.textContent='电话已复制，期待交流。';}catch{status.textContent='电话：13147067501，可长按或选中复制。';}});
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');let reduced=motionPreference.matches;const motionButton=document.querySelector('#motion-toggle');function updateMotion(){document.body.classList.toggle('reduced-motion',reduced);motionButton.setAttribute('aria-pressed',reduced);motionButton.textContent=reduced?'开启动效':'减少动效';window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:{reduced}}));}updateMotion();motionButton.addEventListener('click',()=>{reduced=!reduced;updateMotion();});motionPreference.addEventListener('change',e=>{reduced=e.matches;updateMotion();});
 if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.remove('before-enter');observer.unobserve(e.target);}},{threshold:.05});document.querySelectorAll('.work-item,.about-grid,.manifesto-line').forEach(el=>{el.classList.add('reveal','before-enter');observer.observe(el);});}
